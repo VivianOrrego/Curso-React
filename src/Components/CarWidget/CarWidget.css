@@ -1,0 +1,30 @@
+.carrito{
+    position: absolute;
+    text-align: center;
+    right:  30px;
+    top: 15px;
+    width: 30px;
+    height: 30px;
+}
+
+.contador{
+    position: relative;
+    bottom: 19px;
+    left: 18px;
+    background: violet;
+    height: 15px;
+    width: 15px;
+    border-radius: 10px;
+}
+
+.contador p{
+    position: relative;
+    font-size: 12px;
+    bottom: 2px;
+    color: white;
+}
+
+.bolsa_compras{
+    height: 30px;
+    width: 25px;
+}

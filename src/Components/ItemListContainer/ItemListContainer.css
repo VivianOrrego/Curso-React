@@ -1,0 +1,17 @@
+.contendor{
+    display: inline-flex;
+    margin-top: 100px;
+    justify-content: center;
+    width: 50%;
+    text-align: center;
+}
+.productos{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cards{
+    position: relative;
+    overflow: hidden;
+}
+
