@@ -6,7 +6,7 @@ import "./CarWidget.css"
 export const CarWidget = () => {
   return (
     <div className='carrito'> 
-        <img src="Icono Carrito.svg" alt="icono"  className='bolsa_compras'/>
+        <img src="/Icono Carrito.svg" alt="icono"  className='bolsa_compras'/>
         <div className='contador'> <p>0</p></div>
       
     </div>

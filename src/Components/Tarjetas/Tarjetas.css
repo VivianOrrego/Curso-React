@@ -1,0 +1,19 @@
+.contenedor{
+    width: 17rem;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    word-wrap: break-word;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 10px;
+    margin: 50px;
+    --bs-border-width: 0px;
+    text-decoration: none;
+}  
+
+.img{
+    height: 18rem;
+}

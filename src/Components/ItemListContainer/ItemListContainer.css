@@ -1,17 +1,7 @@
-.contendor{
-    display: inline-flex;
-    margin-top: 100px;
-    justify-content: center;
-    width: 50%;
-    text-align: center;
-}
-.productos{
+.itemListContainer{
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
 }
-
-.cards{
-    position: relative;
-    overflow: hidden;
-}
-
