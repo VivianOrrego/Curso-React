@@ -1,15 +1,20 @@
 /* eslint-disable no-unused-vars */
-import React from 'react'
+import React, {useContext} from 'react'
 import "./CarWidget.css"
+import { CartContext } from '../../context/CartContext'
+import { Link } from 'react-router-dom'
 
 
-export const CarWidget = () => {
+const CarWidget = () => {
+
+  const {cantidadCarrito} = useContext(CartContext)
+  
   return (
-    <div className='carrito'> 
+    <Link to={'/cart'} className='carrito'> 
         <img src="/Icono Carrito.svg" alt="icono"  className='bolsa_compras'/>
-        <div className='contador'> <p>0</p></div>
+        <div className='contador'> <p> {cantidadCarrito() == 0 ? null : cantidadCarrito()} </p> </div>
       
-    </div>
+    </Link>
   )
 }
 export default CarWidget

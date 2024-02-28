@@ -1,24 +1,26 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 import React,{useState} from 'react'
 import { Button } from 'react-bootstrap'
 
-const Contador = () => {
+const Contador = ({initial, stock, onAdd}) => {
 
     const [contador, setContador] = useState(1)
 
     const decrementar = () => {
-        if(contador > 1) {
+        if(contador > initial) {
             setContador(contador - 1)
         }
     }
 
     const incrementar = () => {
-        if(contador < 10) {
+        if(contador < stock) {
             setContador(contador + 1)
         }
     }
 
     const agregarCarrito = () => {
-        alert("AGREGASTE" + " " + contador + " " + "PRODUCTOS AL CARRITO")
+        onAdd(contador)
     }
 
     return (
