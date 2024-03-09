@@ -26,10 +26,10 @@ const Contador = ({initial, stock, onAdd}) => {
     return (
     <>
         <div>
-        <Button  variant="dark" onClick={decrementar} style={{fontSize: '15px', backgroundColor: 'violet', textAlign:'center', color:'black' }}>-</Button>
-        <Button  variant="dark" style={{fontSize: '15px', backgroundColor: 'violet', textAlign:'center', color:'black'  }}>{contador}</Button>
-        <Button  variant="dark" onClick={incrementar} style={{fontSize: '15px', backgroundColor: 'violet', textAlign:'center', color:'black' }}>+</Button>
-        <Button  variant="dark" className='' onClick={agregarCarrito} style={{fontSize: '15px', backgroundColor: 'violet', color:'black'  }}>Agregar al carrito</Button>
+        <Button  variant="dark" onClick={decrementar} style={{fontSize: '15px', backgroundColor: 'black', justifyContent:'center', color:'white', margin:'1px' }}>-</Button>
+        <Button  variant="dark" style={{fontSize: '15px', backgroundColor: 'black', justifyContent:'center', color:'white', margin:'1px'  }}>{contador}</Button>
+        <Button  variant="dark" onClick={incrementar} style={{fontSize: '15px', backgroundColor: 'black', justifyContent:'center', color:'white', margin:'1px' }}>+</Button>
+        <Button  variant="dark" className='' onClick={agregarCarrito} style={{fontSize: '15px', backgroundColor: 'black', color:'white', margin:'1px'  }}>Agregar al carrito</Button>
         </div>
     </>
     )

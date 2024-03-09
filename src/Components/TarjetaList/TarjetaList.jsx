@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import TarjetaDetalle from '../TarjetaDetalle/TarjetaDetalle';
 import { useParams } from 'react-router-dom'; 
 import "./TarjetaList.css"
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
 
     const TarjetaList = () => {
 
@@ -12,19 +13,19 @@ import "./TarjetaList.css"
 
         useEffect(() => {
 
-            const fetchData = async () => {
-                try {
-                    const resp = await fetch("/Productos/productos.json");
-                    const data = await resp.json()
-                    const detalle = data.find((p) => p.id == id)
+            //inicializamos la instancia de la base de datos
+            const db = getFirestore()
 
-                    setProducto(detalle)
-                } catch (error) {
-                    console.log("Error: " + error)
-                }
-            }
+            //Generamos el llamado al documento
+            const nuevoDoc = doc(db, "productos", id)
 
-            fetchData()
+            //hacemos el llamado al documento e imprimimos
+            getDoc(nuevoDoc).then((res) =>{
+                const data = res.data()
+                const nuevoProducto = {id: res.id,...data}
+                setProducto(nuevoProducto)
+            })
+            .catch(error => console.log(error))
         }, []);
 
 

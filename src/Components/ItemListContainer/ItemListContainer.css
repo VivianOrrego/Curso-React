@@ -4,4 +4,9 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    text-decoration: none;
+}
+
+.itemListContainer a{
+    text-decoration: none;
 }

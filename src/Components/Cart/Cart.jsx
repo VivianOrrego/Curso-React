@@ -4,6 +4,9 @@ import React, { useContext } from 'react'
 import {CartContext} from '../../context/CartContext'
 import { Link } from 'react-router-dom'
 import CartItem from './CartItem'
+import './Cart.css'
+import { Button } from 'react-bootstrap'
+import 'typeface-quicksand'
 
 
 const Cart = () => {
@@ -11,25 +14,34 @@ const Cart = () => {
     const {cart, vaciarCarrito, eliminarItem, totalCarrito} = useContext(CartContext)
     
     return (
-    <>
+    < >
             {cart.length == 0 
             ?
-            <div>
-                <h1>No Hay Productos En El Carrito</h1>
-                <Link to={"/"}>IR AL INICIO</Link>
+            <div style={{width: '100%', textAlign: 'center', marginTop: '150px' }}> 
+                
+                <h1 style={{ textAlign: 'center', fontSize: '40px', fontFamily: 'Quicksand', marginTop: '20px' }} >No Hay Productos En El Carrito</h1>
+                <Link to={'/'} style={{justifyContent:'center', width: '100%', }}>  <Button style={{fontSize: '15px', backgroundColor: 'black', color:'white', width: '10%', borderColor: 'white', marginTop: '50px'}}>Ver Produtos</Button> </Link>
+
             </div>        
             :
-            <div>
-                <h1>Lista De Carrito</h1>
-                
-                    {cart.map((p)=>(
-                        <CartItem key={p.id} productos={p} eliminarItem={eliminarItem} />
+            <div className='contenedorCarrito2'>
+                <h2 style={{ textAlign: 'center', fontSize: '40px', fontFamily: 'Quicksand', marginTop: '20px' }}>Lista De Carrito</h2>
+                    
+                    <div >
+                        {cart.map((p)=>(
+                            <div className='contenedorCarritoItem' key={p.productos.id}>
+                                <CartItem  productos={p} eliminarItem={eliminarItem} />
+                            </div>
                         ))}
-                <p>Total Carrito : ${totalCarrito()} </p>
-                <button onClick={vaciarCarrito}>
-                    Vaciar Carrito
-                </button>
-            </div>
+                    </div>
+
+                <h4>Total Carrito : ${totalCarrito()} </h4>
+                
+                <Button onClick={vaciarCarrito} variant="dark" style={{ textAlign: 'center', width: '375px', marginTop: '10px', marginBottom: '50px' }}>Vaciar Carrito</Button>
+
+                <Link to={"/Checkout"}>Completar Compra</Link>
+                
+                </div>
 
         }
         </>

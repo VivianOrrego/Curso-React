@@ -1,0 +1,20 @@
+.carrito2{
+    width: 150px;
+    height: 250px;
+}
+
+.carrito2Imagen{
+    width: 150px;
+    height: 200px;
+}
+
+.carrito2Contenedor{
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+}
+
+.carrito2Detalle{
+    margin-top: 35px;
+    padding-left: 50px;
+}

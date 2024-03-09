@@ -7,9 +7,13 @@ import Error from './Components/Error/Error'
 import TarjetaList from './Components/TarjetaList/TarjetaList'
 import Cart from './Components/Cart/Cart'
 import CartProvider from './context/CartContext'
+import Checkout from './Components/Checkout/Checkout'
 
 
-function App() {
+
+const App = () => {
+  
+
   return (
     <>
       <BrowserRouter>
@@ -21,6 +25,7 @@ function App() {
             <Route path='/categoria/:categoryId' element={<ItemContainer/>}/>
             <Route path='/detalle/:id' element={<TarjetaList/>}/>
             <Route path='/cart' element={<Cart/>}/>
+            <Route path='/Checkout' element={<Checkout/>}/>
             <Route path='*' element={<Error/>}/>
           </Routes>
       </CartProvider>

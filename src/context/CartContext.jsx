@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React,{ useState, createContext } from "react";
+import Contador from "../Components/Contador/Contador";
 
 export const CartContext = createContext()
 
@@ -30,16 +31,14 @@ const CartProvider = ({children}) => {
         setCart([])
     }
     const cantidadCarrito = () =>{
-        
         const totalProductos = cart.reduce((total, item) => total+item.cantidad,0)
         return totalProductos
     }
     const totalCarrito = () =>{
-
         const totalPrice = cart.reduce((total, item) => total + (item.productos.precio * item.cantidad),0)
         return totalPrice
-
     }
+
 
 
     console.log(cart)

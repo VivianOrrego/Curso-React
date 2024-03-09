@@ -7,6 +7,15 @@
     height: 30px;
 }
 
+.contadorVacio{
+    position: relative;
+    bottom: 19px;
+    left: 18px;
+    background: white;
+    height: 15px;
+    width: 15px;
+    border-radius: 10px;
+}
 .contador{
     position: relative;
     bottom: 19px;
