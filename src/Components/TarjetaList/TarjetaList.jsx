@@ -4,7 +4,8 @@ import React, { useEffect, useState } from 'react';
 import TarjetaDetalle from '../TarjetaDetalle/TarjetaDetalle';
 import { useParams } from 'react-router-dom'; 
 import "./TarjetaList.css"
-import { getFirestore, doc, getDoc } from 'firebase/firestore';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../../Firebase/config';
 
     const TarjetaList = () => {
 
@@ -12,9 +13,6 @@ import { getFirestore, doc, getDoc } from 'firebase/firestore';
         const {id} = useParams();
 
         useEffect(() => {
-
-            //inicializamos la instancia de la base de datos
-            const db = getFirestore()
 
             //Generamos el llamado al documento
             const nuevoDoc = doc(db, "productos", id)

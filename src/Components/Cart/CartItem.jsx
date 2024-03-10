@@ -1,15 +1,11 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-
 import './CartItem.css'
 import { Button } from 'react-bootstrap'
 import 'typeface-quicksand'
 
-
 const CartItem = ({productos, eliminarItem}) => {
     console.log(productos)
-
-
 
     return (
         < >

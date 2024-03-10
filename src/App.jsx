@@ -9,10 +9,7 @@ import Cart from './Components/Cart/Cart'
 import CartProvider from './context/CartContext'
 import Checkout from './Components/Checkout/Checkout'
 
-
-
 const App = () => {
-  
 
   return (
     <>
@@ -30,7 +27,6 @@ const App = () => {
           </Routes>
       </CartProvider>
       </BrowserRouter>
-      
     </>
   )
 }

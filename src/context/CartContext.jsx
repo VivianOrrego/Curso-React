@@ -1,14 +1,12 @@
 /* eslint-disable no-unused-vars */
 import React,{ useState, createContext } from "react";
 import Contador from "../Components/Contador/Contador";
-
 export const CartContext = createContext()
 
 // eslint-disable-next-line react/prop-types
 const CartProvider = ({children}) => {
 
     const [cart, setCart] = useState([])
-
 
     const agregarCarrito = (productos, cantidad) =>{
         
@@ -39,10 +37,10 @@ const CartProvider = ({children}) => {
         return totalPrice
     }
 
-
-
     console.log(cart)
+
     return(
+
         <CartContext.Provider value ={{
             cart,
             agregarCarrito,
@@ -55,8 +53,6 @@ const CartProvider = ({children}) => {
         </CartContext.Provider>
 
     )
-
 }
-
 
 export default CartProvider

@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from 'react'
 import ItemListContainer from '../ItemListContainer/ItemListContainer';
 import { useParams } from 'react-router-dom';
-import {collection, getDocs, getFirestore, query, where} from "firebase/firestore"
+import {collection, getDocs, query, where} from "firebase/firestore"
+import { db } from '../../Firebase/config';
 
 const ItemContainer = () => {
 
@@ -11,8 +12,6 @@ const {categoryId} = useParams();
 
 useEffect(() => {
 
-    //Instancia de la Base de datos
-    const db = getFirestore()
     //Filtrado de productos
     const misProductos = categoryId ? query(collection(db, "productos"), where("categoria", "==", categoryId)) :  collection(db, "productos")
 
@@ -29,7 +28,6 @@ useEffect(() => {
     
 }, [categoryId])
 
-    
     return (
     <div>
         <ItemListContainer productos={productos}/>

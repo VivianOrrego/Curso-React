@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React, {useContext, useState} from 'react'
-import { collection, addDoc, updateDoc, doc, getDoc, getFirestore } from 'firebase/firestore'
+import { collection, addDoc, updateDoc, doc, getDoc } from 'firebase/firestore'
 import { CartContext } from '../../context/CartContext'
 import { Button } from 'react-bootstrap'
-
+import { db } from '../../Firebase/config'
 
 const Checkout = () => {
     //Informacion del context
@@ -30,11 +30,6 @@ const Checkout = () => {
                 setError("Los Email no coinciden")
                 return;
             }
-            
-            // alert("Compra Exitosa") 
-
-            //crear la instancia
-            const db = getFirestore()
 
             //objeto para la orden de compra que se envia a la base de datos
 
