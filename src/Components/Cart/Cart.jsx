@@ -37,9 +37,12 @@ const Cart = () => {
 
                 <h4>Total Carrito : ${totalCarrito()} </h4>
                 
-                <Button onClick={vaciarCarrito} variant="dark" style={{ textAlign: 'center', width: '375px', marginTop: '10px', marginBottom: '50px' }}>Vaciar Carrito</Button>
+                <Button onClick={vaciarCarrito} variant="dark" style={{ textAlign: 'center', width: '375px', marginTop: '10px', marginBottom: '5px' }}>Vaciar Carrito</Button>
 
-                <Link to={"/Checkout"}>Completar Compra</Link>
+                <Link to={'/Checkout'} >  <Button variant="dark" style={{ textAlign: 'center', width: '375px', marginTop: '1px', marginBottom: '5px' }}>Completar La Compra</Button> </Link>
+                
+                <Link to={'/'} >  <Button variant="dark" style={{ textAlign: 'center', width: '375px', marginTop: '1px', marginBottom: '50px' }}>Seguir Comprando</Button> </Link>
+                
                 
                 </div>
 

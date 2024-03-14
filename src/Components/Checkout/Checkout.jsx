@@ -82,17 +82,20 @@ const Checkout = () => {
 console.log(nombre)
 
     return (
-        <div>
-            <h1>Ingresa Tus Datos</h1>
+
+        <div >  
+        <div >
+            <h1 style={{ textAlign: 'center', fontSize: '40px', fontFamily: 'Quicksand', marginTop: '20px' }}>Ingresa Tus Datos</h1>
             <form onSubmit={manejadorFormulario}>
 
             {/* Mapeo de productos */}
             {cart.map((productos) => (
                 <div key={productos.productos.id}>
 
-                <p>
+                <p style={{height: "60px"}}>
                     {""}
-                    {productos.productos.nombre} x {productos.cantidad}
+                    {productos.productos.imagen}
+                    
                 </p>
                 <hr />
 
@@ -101,41 +104,41 @@ console.log(nombre)
 
             {/* Campos del formulario */}
 
-            <div>
-                <div>
-                    <label>Nombre</label>
-                    <input type="text" onChange={(e) => setNombre(e.target.value)}/>
+            <div style={{ width:"100%", textAlign:"center" }}>
+                <div >
+
+                    <input type="text" placeholder="Nombre" style={{ justifyContent: 'center', width: '245px', marginTop: '10px' }}  onChange={(e) => setNombre(e.target.value)}/>
                 </div>
                 <div>
-                    <label>Apellido</label>
-                    <input type="text" onChange={(e) => setApellido(e.target.value)}/>
+                    <input type="text" placeholder="apellido" style={{ justifyContent: 'center', width: '245px', marginTop: '10px' }} onChange={(e) => setApellido(e.target.value)}/>
                 </div>
                 <div>
-                    <label>Celular</label>
-                    <input type="text" onChange={(e) => setCelular(e.target.value)}/>
+                    <input type="text" placeholder="Celular" style={{ justifyContent: 'center', width: '245px', marginTop: '10px' }} onChange={(e) => setCelular(e.target.value)}/>
                 </div>
                 <div>
-                    <label>Mail</label>
-                    <input type="email" onChange={(e) => setMail(e.target.value)}/>
+                    <input type="email" placeholder="Mail" style={{ justifyContent: 'center', width: '245px', marginTop: '10px' }} onChange={(e) => setMail(e.target.value)}/>
                 </div>
                 <div>
-                    <label>MailConfirmacion</label>
-                    <input type="email" onChange={(e) => setMailConfirmacion(e.target.value)}/>
+                    <input type="email" placeholder="Mail de Confirmacion" style={{ justifyContent: 'center', width: '245px', marginTop: '10px' }} onChange={(e) => setMailConfirmacion(e.target.value)}/>
                 </div>
 
-                <Button type="submit">Completar Compra</Button>
+                <Button type="submit" style={{fontSize: '15px', backgroundColor: 'black', color:'white', width: '245px', borderColor: 'white', marginTop: '10px', textAlign: 'center'}}>Completar Compra</Button>
                 
                 {error &&  <p style={{color: "red"}}> {error} </p> }
 
                 {ordenId && (
-                    <h3>
-                        ¡Gracias por tu compra! Tu numero de orden es: {ordenId}
+                    <div>
+                    <h3 style={{marginTop:"50px", fontFamily:"quicksand"}}>
+                        ¡Gracias por tu compra {nombre} {apellido}!
                     </h3>
+                        <p>Tu numero de orden es: {ordenId}</p>
+                        </div>
                     
                 )}
             </div>
 
             </form>
+        </div>
         </div>
                 
     )
