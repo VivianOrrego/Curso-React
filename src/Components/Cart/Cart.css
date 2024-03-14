@@ -10,3 +10,9 @@
     height: auto;
     
 }
+
+.boton{
+    text-align: center;
+    width: 375px;
+    margin-top: 2px;
+}

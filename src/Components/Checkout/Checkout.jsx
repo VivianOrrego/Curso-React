@@ -4,6 +4,8 @@ import { collection, addDoc, updateDoc, doc, getDoc } from 'firebase/firestore'
 import { CartContext } from '../../context/CartContext'
 import { Button } from 'react-bootstrap'
 import { db } from '../../Firebase/config'
+import "./Checkout.css"
+import { Link } from 'react-router-dom'
 
 const Checkout = () => {
     //Informacion del context
@@ -64,6 +66,7 @@ const Checkout = () => {
             .then(() =>{
             addDoc(collection(db,"ordenes"),orden)
                 .then((docRef) =>{
+                    
                     setError("")
                     setOrdenId(docRef.id)
                     vaciarCarrito()
@@ -82,65 +85,78 @@ const Checkout = () => {
 console.log(nombre)
 
     return (
+<>      
+        
+        <div className='contGeneral'>
+        <div style={{width:"30%", marginTop:"10px"}}>
+                {/* Mapeo de productos */}
+                {cart.map((productos) => (
+                    <div key={productos.productos.id}>
 
-        <div >  
-        <div >
-            <h1 style={{ textAlign: 'center', fontSize: '40px', fontFamily: 'Quicksand', marginTop: '20px' }}>Ingresa Tus Datos</h1>
+                    <div className='contOrden'>
+                    <div >
+                        <img src={productos.productos.imagen} alt="" style={{width:"85px", height:"110px", margin:"10px" }}/>
+                    </div>
+                    <div style={{marginTop:"5px"}}>
+                        <p className='parrafo'>Producto: {productos.productos.nombre}</p>
+                        <p className='parrafo'>Precio Unid: ${productos.productos.precio} Usd.</p>
+                        <p className='parrafo'>Cantidad: {productos.cantidad}</p>
+                        <p className='parrafo'>Precio Total: ${productos.productos.precio * productos.cantidad} Usd. </p>
+                    </div>
+                    </div>
+                    </div>
+                ))}
+            </div>
+            <div style={{width:"70%", paddingRight:"350px"}}>
+            {cart <= 0 ? null : <div >
+            <h1 className='titulo'>Ingresa Tus Datos</h1>
             <form onSubmit={manejadorFormulario}>
-
-            {/* Mapeo de productos */}
-            {cart.map((productos) => (
-                <div key={productos.productos.id}>
-
-                <p style={{height: "60px"}}>
-                    {""}
-                    {productos.productos.imagen}
-                    
-                </p>
-                <hr />
-
-                </div>
-            ))}
 
             {/* Campos del formulario */}
 
-            <div style={{ width:"100%", textAlign:"center" }}>
+            <div style={{ width:"100%", textAlign:"center", marginTop:"30px" }}>
                 <div >
 
-                    <input type="text" placeholder="Nombre" style={{ justifyContent: 'center', width: '245px', marginTop: '10px' }}  onChange={(e) => setNombre(e.target.value)}/>
+                    <input type="text" placeholder="Nombre" className='formulario'  onChange={(e) => setNombre(e.target.value)}/>
                 </div>
                 <div>
-                    <input type="text" placeholder="apellido" style={{ justifyContent: 'center', width: '245px', marginTop: '10px' }} onChange={(e) => setApellido(e.target.value)}/>
+                    <input type="text" placeholder="Apellido" className='formulario' onChange={(e) => setApellido(e.target.value)}/>
                 </div>
                 <div>
-                    <input type="text" placeholder="Celular" style={{ justifyContent: 'center', width: '245px', marginTop: '10px' }} onChange={(e) => setCelular(e.target.value)}/>
+                    <input type="text" placeholder="Celular" className='formulario' onChange={(e) => setCelular(e.target.value)}/>
                 </div>
                 <div>
-                    <input type="email" placeholder="Mail" style={{ justifyContent: 'center', width: '245px', marginTop: '10px' }} onChange={(e) => setMail(e.target.value)}/>
+                    <input type="email" placeholder="Mail" className='formulario' onChange={(e) => setMail(e.target.value)}/>
                 </div>
                 <div>
-                    <input type="email" placeholder="Mail de Confirmacion" style={{ justifyContent: 'center', width: '245px', marginTop: '10px' }} onChange={(e) => setMailConfirmacion(e.target.value)}/>
+                    <input type="email" placeholder="Mail de Confirmacion" className='formulario' onChange={(e) => setMailConfirmacion(e.target.value)}/>
                 </div>
-
-                <Button type="submit" style={{fontSize: '15px', backgroundColor: 'black', color:'white', width: '245px', borderColor: 'white', marginTop: '10px', textAlign: 'center'}}>Completar Compra</Button>
+                <h6 className='totalCarrito'>Total Carrito: ${totalCarrito()} Usd. </h6>
+                <Button type="submit" style={{fontSize: '15px', backgroundColor: 'black', color:'white', width: '245px', borderColor: 'white', marginTop: '20px', textAlign: 'center'}}>Completar Compra</Button>
                 
+            </div>
+            
+
+            </form>
+        </div> }
+            </div>
+            
+        </div>
+        <div >  
                 {error &&  <p style={{color: "red"}}> {error} </p> }
 
                 {ordenId && (
-                    <div>
-                    <h3 style={{marginTop:"50px", fontFamily:"quicksand"}}>
+                    <div className='orden'>
+                    <h2 >
                         ¡Gracias por tu compra {nombre} {apellido}!
-                    </h3>
-                        <p>Tu numero de orden es: {ordenId}</p>
+                    </h2>
+                        <h5>Tu numero de orden es: {ordenId}</h5>
+                        <Link to={'/'} >  <Button variant="dark" style={{ textAlign: 'center', width: '375px', marginTop: '10px', marginBottom: '50px' }}>Realizar Otra Compra </Button> </Link>
                         </div>
                     
                 )}
-            </div>
-
-            </form>
         </div>
-        </div>
-                
+    </>              
     )
 } 
 

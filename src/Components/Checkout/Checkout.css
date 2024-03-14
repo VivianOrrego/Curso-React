@@ -1,0 +1,48 @@
+.titulo{
+    text-align: center;
+    font-size: 40px;
+    font-family: "quicksand";
+    margin-Top: 20px;
+}
+.totalCarrito{
+    text-align: center;
+    font-size: 25px;
+    font-family: "quicksand";
+    margin-Top: 15px;
+    font-weight: 500;
+}
+
+.formulario{
+    justify-Content: center;
+    width: 245px;
+    margin-Top: 20px;
+
+}
+
+.orden{
+    margin-Top:10px;
+    font-family: "quicksand" ;
+    text-align: center;
+    margin: 30px;
+}
+
+.contGeneral{
+    display: flex;
+    width: 100%;
+}
+
+
+.contOrden{
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    padding-left: 100px;
+}
+
+.parrafo{
+
+    font-family:"quicksand";
+    font-size:"7px";
+    margin: 2px;
+    
+}
